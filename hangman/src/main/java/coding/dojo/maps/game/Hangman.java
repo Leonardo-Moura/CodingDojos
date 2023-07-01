@@ -1,6 +1,7 @@
 package coding.dojo.maps.game;
 
 import coding.dojo.maps.datasource.PalavrasDatasource;
+import coding.dojo.maps.exceptions.FailureGameOverException;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Random;
@@ -37,6 +38,9 @@ public class Hangman {
             }
         } else {
             tentativasRestante--;
+            if (tentativasRestante == 0) {
+                throw new FailureGameOverException();
+            }
         }
         return letrasCorretas;
     }

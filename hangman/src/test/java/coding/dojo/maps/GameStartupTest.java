@@ -1,11 +1,13 @@
 package coding.dojo.maps;
 
 import coding.dojo.maps.datasource.PalavrasDatasource;
+import coding.dojo.maps.exceptions.FailureGameOverException;
 import coding.dojo.maps.game.Hangman;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -60,7 +62,7 @@ class GameStartupTest {
     }
 
     @Test
-    void succesfulGameOver () {
+    void succesfulGameOver() {
         PalavrasDatasource datasource = mock(PalavrasDatasource.class);
         when(datasource.getPalavras()).thenReturn(new String[]{"Banana"});
 
@@ -81,11 +83,22 @@ class GameStartupTest {
         Hangman h = new Hangman(datasource, 5);
 
         h.colocarLetra('x');
-        h.colocarLetra('x');
-        h.colocarLetra('x');
-        h.colocarLetra('x');
-        h.colocarLetra('x');
+        h.colocarLetra('y');
+        h.colocarLetra('z');
+        h.colocarLetra('f');
 
-        assertEquals(0, h.getTentativasRestantes());
+        FailureGameOverException exception = assertThrows(FailureGameOverException.class, () -> h.colocarLetra('j'));
+
+        assertEquals("Tentativas esgotadas", exception.getMessage());
+    }
+
+    @Test
+    void insertRepeatedLetter() {
+        PalavrasDatasource datasource = mock(PalavrasDatasource.class);
+        when(datasource.getPalavras()).thenReturn(new String[]{"Banana"});
+
+        Hangman h = new Hangman(datasource, 5);
+
+        h.colocarLetra('x');
     }
 }
