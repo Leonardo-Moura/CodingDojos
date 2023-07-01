@@ -13,6 +13,8 @@ class GameStartupTest {
     void initGameTest() {
         Hangman h = new Hangman(new MockPalavrasDatasource());
 
-        h.print
+        var letras = h.getWordTemplate();
+
+        assertEquals();
     }
 }

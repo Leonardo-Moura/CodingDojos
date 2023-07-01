@@ -9,4 +9,8 @@ public class Hangman {
     public Hangman(PalavrasDatasource datasource) {
         this.datasource = datasource;
     }
+
+    public Character[] getWordTemplate() {
+        return null;
+    }
 }
