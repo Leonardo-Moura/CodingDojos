@@ -9,13 +9,14 @@ public class Hangman {
 
     private final String palavra;
 
-    private final char[] 
+    private final char[] letrasCorretas;
 
     private Integer tentativasRestante;
 
     public Hangman(PalavrasDatasource datasource, int qtdTentativas) {
         this.palavra = selectWord(datasource.getPalavras());
         this.tentativasRestante = qtdTentativas;
+        this.letrasCorretas = new char[palavra.length()];
     }
 
     private String selectWord(String[] palavras) {
@@ -27,13 +28,13 @@ public class Hangman {
         return StringUtils.repeat("_", palavra.length()).toCharArray();
     }
 
-    public char[] colocarLetra(String x) {
-        if (palavra.contains(x)) {
-
+    public char[] colocarLetra(String letra) {
+        if (palavra.contains(letra)) {
+            this.letrasCorretas[palavra.indexOf(letra)] = letra.charAt(palavra.indexOf(letra));
         } else {
             tentativasRestante--;
         }
-        return getWordTemplate();
+        return  letrasCorretas;
     }
 
     public Integer getTentativasRestantes() {
