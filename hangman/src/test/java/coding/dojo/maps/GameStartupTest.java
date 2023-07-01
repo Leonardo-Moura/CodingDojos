@@ -5,6 +5,7 @@ import coding.dojo.maps.game.Hangman;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -15,7 +16,7 @@ class GameStartupTest {
         PalavrasDatasource datasource = mock(PalavrasDatasource.class);
         when(datasource.getPalavras()).thenReturn(new String[]{"Banana"});
 
-        Hangman h = new Hangman(datasource);
+        Hangman h = new Hangman(datasource, 5);
 
         var letras = h.getWordTemplate();
 
@@ -23,5 +24,15 @@ class GameStartupTest {
     }
 
     @Test
-    void 
+    void insertLetraErrada() {
+        PalavrasDatasource datasource = mock(PalavrasDatasource.class);
+        when(datasource.getPalavras()).thenReturn(new String[]{"Banana"});
+
+        Hangman h = new Hangman(datasource, 5);
+        char[] letras = h.colocarLetra("x");
+
+        assertArrayEquals(new char[]{'_', '_', '_', '_', '_', '_'}, letras);
+        assertEquals(h.getTentativasRestantes(), 4);
+
+    }
 }
