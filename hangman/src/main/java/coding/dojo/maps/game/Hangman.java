@@ -16,7 +16,7 @@ public class Hangman {
     public Hangman(PalavrasDatasource datasource, int qtdTentativas) {
         this.palavra = selectWord(datasource.getPalavras());
         this.tentativasRestante = qtdTentativas;
-        this.letrasCorretas = new char[palavra.length()];
+        this.letrasCorretas = getWordTemplate();
     }
 
     private String selectWord(String[] palavras) {
@@ -28,13 +28,17 @@ public class Hangman {
         return StringUtils.repeat("_", palavra.length()).toCharArray();
     }
 
-    public char[] colocarLetra(String letra) {
-        if (palavra.contains(letra)) {
-            this.letrasCorretas[palavra.indexOf(letra)] = letra.charAt(palavra.indexOf(letra));
+    public char[] colocarLetra(char letra) {
+        if (palavra.contains(String.valueOf(letra))) {
+            for (int i = 0; i < palavra.length(); i++) {
+                if (palavra.charAt(i) == letra) {
+                    letrasCorretas[i] = letra;
+                }
+            }
         } else {
             tentativasRestante--;
         }
-        return  letrasCorretas;
+        return letrasCorretas;
     }
 
     public Integer getTentativasRestantes() {

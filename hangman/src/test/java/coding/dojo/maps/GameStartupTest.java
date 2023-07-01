@@ -29,7 +29,7 @@ class GameStartupTest {
         when(datasource.getPalavras()).thenReturn(new String[]{"Banana"});
 
         Hangman h = new Hangman(datasource, 5);
-        char[] letras = h.colocarLetra("x");
+        char[] letras = h.colocarLetra('x');
 
         assertArrayEquals(new char[]{'_', '_', '_', '_', '_', '_'}, letras);
         assertEquals(4, h.getTentativasRestantes());
@@ -41,9 +41,21 @@ class GameStartupTest {
         when(datasource.getPalavras()).thenReturn(new String[]{"Banana"});
 
         Hangman h = new Hangman(datasource, 5);
-        char[] letras = h.colocarLetra("B");
+        char[] letras = h.colocarLetra('B');
 
         assertArrayEquals(new char[]{'B', '_', '_', '_', '_', '_'}, letras);
+        assertEquals(5, h.getTentativasRestantes());
+    }
+
+    @Test
+    void insertLetraCertaRecorrente() {
+        PalavrasDatasource datasource = mock(PalavrasDatasource.class);
+        when(datasource.getPalavras()).thenReturn(new String[]{"Banana"});
+
+        Hangman h = new Hangman(datasource, 5);
+        char[] letras = h.colocarLetra('a');
+
+        assertArrayEquals(new char[]{'_', 'a', '_', 'a', '_', 'a'}, letras);
         assertEquals(5, h.getTentativasRestantes());
     }
 }
