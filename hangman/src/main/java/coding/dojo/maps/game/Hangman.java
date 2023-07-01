@@ -4,7 +4,7 @@ import coding.dojo.maps.datasource.PalavrasDatasource;
 
 public class Hangman {
 
-    private final String 
+    private final String
     private final PalavrasDatasource datasource;
 
     public Hangman(PalavrasDatasource datasource) {
