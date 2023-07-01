@@ -1,10 +1,15 @@
 package coding.dojo.maps;
 
-public class GameStartupTest {
+import org.junit.jupiter.api.Test;
 
-    private static String[] PALAVRAS = new String[]{"Banana","","",""};
+class GameStartupTest {
 
-    public void initGameTest() {
+    private static String[] PALAVRAS = new String[]{"Banana", "", "", ""};
 
+    @Test
+    void initGameTest() {
+        PalavrasDataSource palavrasDataSource = PalavrasDataSource();
+
+        Hangman h = new Hangman(palavrasDataSoruce);
     }
 }
