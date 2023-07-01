@@ -1,15 +1,18 @@
 package coding.dojo.maps;
 
+import coding.dojo.maps.datasource.MockPalavrasDatasource;
+import coding.dojo.maps.datasource.PalavrasDatasource;
+import coding.dojo.maps.game.Hangman;
 import org.junit.jupiter.api.Test;
 
 class GameStartupTest {
 
-    private static String[] PALAVRAS = new String[]{"Banana", "", "", ""};
+    private static final String[] PALAVRAS = new String[]{"Banana", "", "", ""};
 
     @Test
     void initGameTest() {
-        PalavrasDataSource palavrasDataSource = PalavrasDataSource();
+        Hangman h = new Hangman(new MockPalavrasDatasource());
 
-        Hangman h = new Hangman(palavrasDataSoruce);
+        h.print
     }
 }
