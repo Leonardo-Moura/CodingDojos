@@ -8,13 +8,19 @@ import java.util.Random;
 public class Hangman {
 
     private final String palavra;
-    private final Integer tentativasRestante;
+
+    private final char[] 
+
+    private Integer tentativasRestante;
 
     public Hangman(PalavrasDatasource datasource, int qtdTentativas) {
-        Random r = new Random();
-        var palavras = datasource.getPalavras();
-        this.palavra = palavras[r.nextInt(palavras.length)];
+        this.palavra = selectWord(datasource.getPalavras());
         this.tentativasRestante = qtdTentativas;
+    }
+
+    private String selectWord(String[] palavras) {
+        Random r = new Random();
+        return palavras[r.nextInt(palavras.length)];
     }
 
     public char[] getWordTemplate() {
@@ -22,6 +28,11 @@ public class Hangman {
     }
 
     public char[] colocarLetra(String x) {
+        if (palavra.contains(x)) {
+
+        } else {
+            tentativasRestante--;
+        }
         return getWordTemplate();
     }
 
