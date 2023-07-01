@@ -58,4 +58,34 @@ class GameStartupTest {
         assertArrayEquals(new char[]{'_', 'a', '_', 'a', '_', 'a'}, letras);
         assertEquals(5, h.getTentativasRestantes());
     }
+
+    @Test
+    void succesfulGameOver () {
+        PalavrasDatasource datasource = mock(PalavrasDatasource.class);
+        when(datasource.getPalavras()).thenReturn(new String[]{"Banana"});
+
+        Hangman h = new Hangman(datasource, 5);
+        h.colocarLetra('B');
+        h.colocarLetra('a');
+        char[] letras = h.colocarLetra('n');
+
+        assertArrayEquals(new char[]{'B', 'a', 'n', 'a', 'n', 'a'}, letras);
+        assertEquals(5, h.getTentativasRestantes());
+    }
+
+    @Test
+    void failureGameOver() {
+        PalavrasDatasource datasource = mock(PalavrasDatasource.class);
+        when(datasource.getPalavras()).thenReturn(new String[]{"Banana"});
+
+        Hangman h = new Hangman(datasource, 5);
+
+        h.colocarLetra('x');
+        h.colocarLetra('x');
+        h.colocarLetra('x');
+        h.colocarLetra('x');
+        h.colocarLetra('x');
+
+        assertEquals(0, h.getTentativasRestantes());
+    }
 }
