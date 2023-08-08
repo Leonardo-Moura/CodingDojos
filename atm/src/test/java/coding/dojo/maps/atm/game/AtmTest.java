@@ -18,4 +18,15 @@ class AtmTest {
         assertEquals(50, notas.get(0).getValor());
     }
 
+    @Test
+    void retornaDuasNotasDe50ParaUmPedididoDe100() {
+        Atm atm = new Atm();
+
+        List<Nota> notas = atm.sacar(100);
+
+        assertEquals(2, notas.size());
+        assertEquals(50, notas.get(0).getValor());
+        assertEquals(50, notas.get(1).getValor());
+    }
+
 }
