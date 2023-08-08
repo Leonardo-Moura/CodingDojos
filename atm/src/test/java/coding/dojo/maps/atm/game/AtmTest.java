@@ -19,14 +19,13 @@ class AtmTest {
     }
 
     @Test
-    void retornaDuasNotasDe50ParaUmPedididoDe100() {
+    void retornaUmaNotaDe100ParaUmPedididoDe100() {
         Atm atm = new Atm();
 
         List<Nota> notas = atm.sacar(100);
 
-        assertEquals(2, notas.size());
-        assertEquals(50, notas.get(0).getValor());
-        assertEquals(50, notas.get(1).getValor());
+        assertEquals(1, notas.size());
+        assertEquals(100, notas.get(0).getValor());
     }
 
     @Test
@@ -38,6 +37,16 @@ class AtmTest {
         assertEquals(2, notas.size());
         assertEquals(20, notas.get(0).getValor());
         assertEquals(20, notas.get(1).getValor());
+    }
+
+    @Test
+    void retornaUmaNotaDe100EUmaDe50ParaUmPedididoDe150() {
+        Atm atm = new Atm();
+
+        List<Nota> notas = atm.sacar(150);
+
+        assertEquals(1, notas.size());
+        assertEquals(100, notas.get(0).getValor());
     }
 
 }

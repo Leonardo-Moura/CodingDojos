@@ -12,18 +12,21 @@ public class Atm {
 
         List<Nota> notas = new ArrayList<>();
 
-        for (Integer valor:
-             valoresPossiveis) {
-
+        for (Integer vp: valoresPossiveis) {
+            int numeroDeNotas = valorRestante / vp;
+            valorRestante = valorRestante -(vp * numeroDeNotas);
+            for (int i = 0; i < numeroDeNotas; i++) {
+                notas.add(new Nota(vp));
+            }
         }
 
-        valoresPossiveis.forEach(valorCorrente -> {
-            int numeroDeNotas = valorRestante / valorCorrente;
-            valorRestante = valorRestante - valorCorrente;
-            for (int i = 0; i < numeroDeNotas; i++) {
-                notas.add(new Nota(valorCorrente));
-            }
-        });
+//        valoresPossiveis.forEach(valorCorrente -> {
+//            int numeroDeNotas = valorRestante / valorCorrente;
+//            valorRestante = valorRestante - valorCorrente;
+//            for (int i = 0; i < numeroDeNotas; i++) {
+//                notas.add(new Nota(valorCorrente));
+//            }
+//        });
 
         return notas;
     }
