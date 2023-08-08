@@ -15,6 +15,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <modules>
+        <module>atm</module>
+        <module>hangman</module>
+    </modules>
+
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>

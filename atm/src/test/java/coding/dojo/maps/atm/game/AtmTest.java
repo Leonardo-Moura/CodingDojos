@@ -15,7 +15,7 @@ class AtmTest {
         List<Nota> notas = atm.sacar(50);
 
         assertEquals(1, notas.size());
-
+        assertEquals(50, notas.get(0).getValor());
     }
 
 }
