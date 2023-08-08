@@ -29,4 +29,15 @@ class AtmTest {
         assertEquals(50, notas.get(1).getValor());
     }
 
+    @Test
+    void retornaDuasNotasDe20ParaUmPedididoDe40() {
+        Atm atm = new Atm();
+
+        List<Nota> notas = atm.sacar(40);
+
+        assertEquals(2, notas.size());
+        assertEquals(20, notas.get(0).getValor());
+        assertEquals(20, notas.get(1).getValor());
+    }
+
 }
