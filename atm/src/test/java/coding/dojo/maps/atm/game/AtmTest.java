@@ -1,10 +1,12 @@
 package coding.dojo.maps.atm.game;
 
+import coding.dojo.maps.atm.game.exception.NotaInexistenteException;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class AtmTest {
 
@@ -45,8 +47,16 @@ class AtmTest {
 
         List<Nota> notas = atm.sacar(150);
 
-        assertEquals(1, notas.size());
+        assertEquals(2, notas.size());
         assertEquals(100, notas.get(0).getValor());
+        assertEquals(50, notas.get(1).getValor());
+    }
+
+    @Test
+    void lancaExcecaoParaUmPedididoComNotaQueNaoExiste() {
+        Atm atm = new Atm();
+
+        assertThrows(NotaInexistenteException.class, () -> atm.sacar(115), "O valor ")
     }
 
 }
