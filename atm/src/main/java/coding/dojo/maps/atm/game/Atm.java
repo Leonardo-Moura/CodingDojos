@@ -2,7 +2,6 @@ package coding.dojo.maps.atm.game;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class Atm {
 
@@ -11,18 +10,20 @@ public class Atm {
     public List<Nota> sacar(Integer valor) {
         Integer valorRestante = valor;
 
-
         List<Nota> notas = new ArrayList<>();
+
+        for (Integer valor:
+             valoresPossiveis) {
+
+        }
+
         valoresPossiveis.forEach(valorCorrente -> {
             int numeroDeNotas = valorRestante / valorCorrente;
-            for ()
+            valorRestante = valorRestante - valorCorrente;
+            for (int i = 0; i < numeroDeNotas; i++) {
+                notas.add(new Nota(valorCorrente));
+            }
         });
-
-
-        int number50 = valor / 50;
-        for (int i = 0; i < number50; i++) {
-            notas.add(new Nota(50));
-        }
 
         return notas;
     }
