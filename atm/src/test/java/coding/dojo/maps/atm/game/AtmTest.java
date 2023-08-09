@@ -56,7 +56,20 @@ class AtmTest {
     void lancaExcecaoParaUmPedididoComNotaQueNaoExiste() {
         Atm atm = new Atm();
 
-        assertThrows(NotaInexistenteException.class, () -> atm.sacar(115), "O valor ")
+        assertThrows(NotaInexistenteException.class, () -> atm.sacar(115), "Notas indisponíveis para o valor restante: 5");
+    }
+
+    @Test
+    void retornaUmaNotaDeCada() {
+        Atm atm = new Atm();
+
+        List<Nota> notas = atm.sacar(180);
+
+        assertEquals(4, notas.size());
+        assertEquals(100, notas.get(0).getValor());
+        assertEquals(50, notas.get(1).getValor());
+        assertEquals(20, notas.get(2).getValor());
+        assertEquals(10, notas.get(3).getValor());
     }
 
 }

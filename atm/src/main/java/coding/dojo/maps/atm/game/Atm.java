@@ -1,5 +1,7 @@
 package coding.dojo.maps.atm.game;
 
+import coding.dojo.maps.atm.game.exception.NotaInexistenteException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,21 +14,17 @@ public class Atm {
 
         List<Nota> notas = new ArrayList<>();
 
-        for (Integer vp: valoresPossiveis) {
+        for (Integer vp : valoresPossiveis) {
             int numeroDeNotas = valorRestante / vp;
-            valorRestante = valorRestante -(vp * numeroDeNotas);
+            valorRestante = valorRestante - (vp * numeroDeNotas);
             for (int i = 0; i < numeroDeNotas; i++) {
                 notas.add(new Nota(vp));
             }
         }
 
-//        valoresPossiveis.forEach(valorCorrente -> {
-//            int numeroDeNotas = valorRestante / valorCorrente;
-//            valorRestante = valorRestante - valorCorrente;
-//            for (int i = 0; i < numeroDeNotas; i++) {
-//                notas.add(new Nota(valorCorrente));
-//            }
-//        });
+        if (valorRestante > 0) {
+            throw new NotaInexistenteException(valorRestante);
+        }
 
         return notas;
     }
