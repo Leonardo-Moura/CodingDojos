@@ -18,6 +18,7 @@
     <modules>
         <module>atm</module>
         <module>hangman</module>
+        <module>cheque</module>
     </modules>
 
     <dependencies>
