@@ -19,4 +19,8 @@ public class ChequeTest {
 
         assertEquals("um real", valorTexto);
     }
+
+    void validaReaisPorExtenso() {
+
+    }
 }
