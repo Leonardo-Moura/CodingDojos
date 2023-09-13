@@ -36,6 +36,8 @@ public class ChequeTest {
 
         for (Map.Entry<BigDecimal, String> valor : valores.entrySet()) {
             Cheque cheque = new Cheque(valor.getKey());
+
+            assertEquals(valor.getKey() + " "+ valor.getValue(), cheque.porExtenso());
         }
     }
 }
