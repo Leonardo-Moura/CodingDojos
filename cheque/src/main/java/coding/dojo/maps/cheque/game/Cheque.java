@@ -14,6 +14,7 @@ public class Cheque {
         if (BigDecimal.ONE.equals(valor)) {
             valorTexto = "um" + valorTexto;
         }
+
         return valorTexto;
     }
 }

@@ -4,8 +4,8 @@ import java.math.BigDecimal;
 
 public enum NumeroConverter {
 
-    um,
-    dois,
+    UM,
+    DOIS,
     tres,
     QUATRO,
     CINCO,
