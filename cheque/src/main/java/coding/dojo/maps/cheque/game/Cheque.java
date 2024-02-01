@@ -16,8 +16,9 @@ public class Cheque {
     private final Converter converter = new Converter();
 
     public Cheque(BigDecimal valor) {
+        valor.toString().charAt()
         for (char s : valor.toString().toCharArray()) {
-            converters.add(converter.getNumeroConverter(BigDecimal.valueOf(s)));
+            converters.add(converter.getNumeroConverter(new BigDecimal(s)));
         }
 
         sufixo = valor.equals(BigDecimal.ONE) ? "real" : "reais";
