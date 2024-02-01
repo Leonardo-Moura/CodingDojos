@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public interface NumeroConverter {
 
-    String porExtenso(BigDecimal valor);
+    String porExtenso();
 
     BigDecimal valorAbsoluto();
 

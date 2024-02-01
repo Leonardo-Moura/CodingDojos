@@ -24,36 +24,7 @@ public class Cheque {
 
     public Cheque(BigDecimal valor) {
         converter.converterValor(valor);
-
         sufixo = "reais";
-        if (BigDecimal.ONE.equals(valor)) {
-            numeroConverters.add(new UmConverter());
-            sufixo = "real";
-        }
-        if (BigDecimal.valueOf(2).equals(valor)) {
-            numeroConverters.add(new DoisConverter());
-        }
-        if (BigDecimal.valueOf(3).equals(valor)) {
-            numeroConverters.add(new TresConverter());
-        }
-        if (BigDecimal.valueOf(4).equals(valor)) {
-            numeroConverters.add(new QuatroConverter());
-        }
-        if (BigDecimal.valueOf(5).equals(valor)) {
-            numeroConverters.add(new CincoConverter());
-        }
-        if (BigDecimal.valueOf(6).equals(valor)) {
-            numeroConverters.add(new SeisConverter());
-        }
-        if (BigDecimal.valueOf(7).equals(valor)) {
-            numeroConverters.add(new SeteConverter());
-        }
-        if (BigDecimal.valueOf(8).equals(valor)) {
-            numeroConverters.add(new OitoConverter());
-        }
-        if (BigDecimal.valueOf(9).equals(valor)) {
-            numeroConverters.add(new NoveConverter());
-        }
     }
 
 

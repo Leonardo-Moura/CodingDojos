@@ -4,15 +4,15 @@ import coding.dojo.maps.cheque.game.converter.NumeroConverter;
 
 import java.math.BigDecimal;
 
-public class DezenoveConverter implements NumeroConverter {
+public class QuinzeConverter implements NumeroConverter {
 
     @Override
     public String porExtenso() {
-        return "dezenove";
+        return "quinze";
     }
 
     @Override
     public BigDecimal valorAbsoluto() {
-        return BigDecimal.valueOf(19);
+        return BigDecimal.valueOf(15);
     }
 }

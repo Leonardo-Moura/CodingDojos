@@ -4,14 +4,15 @@ import coding.dojo.maps.cheque.game.converter.NumeroConverter;
 
 import java.math.BigDecimal;
 
-public class UmConverter implements NumeroConverter {
+public class DozeConverter implements NumeroConverter {
+
     @Override
     public String porExtenso() {
-        return "um";
+        return "doze";
     }
 
     @Override
     public BigDecimal valorAbsoluto() {
-        return BigDecimal.ONE;
+        return BigDecimal.valueOf(12);
     }
 }
