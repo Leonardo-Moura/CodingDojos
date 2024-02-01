@@ -16,9 +16,13 @@ public class Cheque {
     private final Converter converter = new Converter();
 
     public Cheque(BigDecimal valor) {
-        valor.toString().charAt()
+        for (int i = 0; i < valor.toString().toCharArray().length; i++) {
+            char s = valor.toString().charAt(i);
+            converters.add(converter.getNumeroConverter(new BigDecimal(String.valueOf(s))));
+        }
+
         for (char s : valor.toString().toCharArray()) {
-            converters.add(converter.getNumeroConverter(new BigDecimal(s)));
+            converters.add(converter.getNumeroConverter(new BigDecimal(String.valueOf(s))));
         }
 
         sufixo = valor.equals(BigDecimal.ONE) ? "real" : "reais";
