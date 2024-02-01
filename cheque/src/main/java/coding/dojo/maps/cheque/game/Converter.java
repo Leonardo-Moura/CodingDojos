@@ -1,11 +1,6 @@
 package coding.dojo.maps.cheque.game;
 
-import coding.dojo.maps.cheque.game.converter.CincoConverter;
-import coding.dojo.maps.cheque.game.converter.DoisConverter;
-import coding.dojo.maps.cheque.game.converter.NumeroConverter;
-import coding.dojo.maps.cheque.game.converter.QuatroConverter;
-import coding.dojo.maps.cheque.game.converter.TresConverter;
-import coding.dojo.maps.cheque.game.converter.UmConverter;
+import coding.dojo.maps.cheque.game.converter.*;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -14,13 +9,24 @@ import java.util.List;
 
 public class Converter {
 
-    private final List<NumeroConverter> numeroConverters = new ArrayList<>();
-    
-    public Converter(){
+    private final List<NumeroConverter> numeroConverters;
 
+    public Converter() {
+        numeroConverters = Arrays.asList(
+                new UmConverter(),
+                new DoisConverter(),
+                new TresConverter(),
+                new QuatroConverter(),
+                new CincoConverter(),
+                new SeisConverter(),
+                new SeteConverter(),
+                new OitoConverter(),
+                new NoveConverter());
     }
 
     public void converterValor(BigDecimal valor) {
-        numeroConverters = Arrays.asList(new UmConverter(), new DoisConverter(), new TresConverter(), new QuatroConverter(), new CincoConverter())
+        for (int i = 0; i < numeroConverters.size(); i++) {
+            numeroConverters.get(i).porExtenso(valor);
+        }
     }
 }
