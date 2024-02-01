@@ -1,20 +1,27 @@
 package coding.dojo.maps.cheque.game;
 
-import lombok.RequiredArgsConstructor;
+import coding.dojo.maps.cheque.game.converter.NumeroConverter;
+import coding.dojo.maps.cheque.game.converter.UmConverter;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
-@RequiredArgsConstructor
 public class Cheque {
 
-    private final BigDecimal valor;
+    private final List<NumeroConverter> numeroConverters = new ArrayList<>();
+
+    public Cheque(BigDecimal valor) {
+        if (BigDecimal.ONE.equals(valor)) {
+            numeroConverters.add(new UmConverter());
+        }
+    }
+
 
     public String porExtenso() {
-        String valorTexto = " real";
-        if (BigDecimal.ONE.equals(valor)) {
-            valorTexto = "um" + valorTexto;
-        }
+        String extenso = String.join(" ", numeroConverters.stream().map(NumeroConverter::porExtenso).collect(Collectors.toList()));
 
-        return valorTexto;
+        return extenso + " real";
     }
 }
