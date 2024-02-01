@@ -62,4 +62,9 @@ class ChequeTest {
             assertEquals(valor.getValue(), cheque.porExtenso());
         }
     }
+
+    @Test
+    void validaReaisPorExtensoVinteAVinteNove() {
+
+    }
 }

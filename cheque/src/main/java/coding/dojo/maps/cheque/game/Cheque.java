@@ -18,11 +18,14 @@ public class Cheque {
     public Cheque(BigDecimal valor) {
         for (int i = 0; i < valor.toString().toCharArray().length; i++) {
             char s = valor.toString().charAt(i);
-            converters.add(converter.getNumeroConverter(new BigDecimal(String.valueOf(s))));
-        }
 
-        for (char s : valor.toString().toCharArray()) {
-            converters.add(converter.getNumeroConverter(new BigDecimal(String.valueOf(s))));
+            if (s == '1' && valor.toString().length() == 2 && i == 0) {
+                converters.add(converter.getNumeroConverter(new BigDecimal(String.valueOf(s) + valor.toString().charAt(i + 1))));
+                i++;
+            } else {
+                converters.add(converter.getNumeroConverter(new BigDecimal(String.valueOf(s))));
+            }
+
         }
 
         sufixo = valor.equals(BigDecimal.ONE) ? "real" : "reais";
