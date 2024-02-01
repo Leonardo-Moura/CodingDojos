@@ -5,11 +5,8 @@ import java.math.BigDecimal;
 public class NoveConverter implements NumeroConverter {
 
     @Override
-    public String porExtenso(BigDecimal valor) {
-        if(valor.equals(9)){
-            return "nove";
-        }
-        return "";
+    public String porExtenso() {
+        return "nove";
     }
 
     @Override
