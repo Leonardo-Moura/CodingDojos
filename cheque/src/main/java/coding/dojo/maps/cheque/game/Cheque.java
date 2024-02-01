@@ -20,12 +20,13 @@ public class Cheque {
 
     private final List<NumeroConverter> numeroConverters = new ArrayList<>();
 
-    private final String sufixo;
+    private String sufixo;
 
     public Cheque(BigDecimal valor) {
-        sufixo
+        sufixo = "reais";
         if (BigDecimal.ONE.equals(valor)) {
             numeroConverters.add(new UmConverter());
+            sufixo = "real";
         }
         if (BigDecimal.valueOf(2).equals(valor)) {
             numeroConverters.add(new DoisConverter());
@@ -57,6 +58,6 @@ public class Cheque {
     public String porExtenso() {
         String extenso = String.join(" ", numeroConverters.stream().map(NumeroConverter::porExtenso).collect(Collectors.toList()));
 
-        return extenso + " real";
+        return String.format("%s %s", extenso, sufixo);
     }
 }
