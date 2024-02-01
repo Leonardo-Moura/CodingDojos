@@ -18,16 +18,12 @@ import java.util.stream.Collectors;
 
 public class Cheque {
 
-
-
     private String sufixo;
 
     private Converter converter = new Converter();
 
     public Cheque(BigDecimal valor) {
         converter.converterValor(valor);
-
-
 
         sufixo = "reais";
         if (BigDecimal.ONE.equals(valor)) {
