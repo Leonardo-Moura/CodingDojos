@@ -1,4 +1,4 @@
-package coding.dojo.maps.cheque.game.converter.dez;
+package coding.dojo.maps.cheque.game.converter;
 
 import coding.dojo.maps.cheque.game.converter.NumeroConverter;
 

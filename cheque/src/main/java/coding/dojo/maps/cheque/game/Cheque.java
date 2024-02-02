@@ -19,7 +19,7 @@ public class Cheque {
         for (int i = 0; i < valor.toString().toCharArray().length; i++) {
             char s = valor.toString().charAt(i);
 
-            if (s == '1' && valor.toString().length() == 2 && i == 0) {
+            if ((s == '1' || s == '2') && valor.toString().length() == 2 && i == 0) {
                 converters.add(converter.getNumeroConverter(new BigDecimal(String.valueOf(s) + valor.toString().charAt(i + 1))));
                 i++;
             } else {

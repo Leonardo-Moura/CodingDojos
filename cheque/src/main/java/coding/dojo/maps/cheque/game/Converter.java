@@ -1,25 +1,26 @@
 package coding.dojo.maps.cheque.game;
 
+import coding.dojo.maps.cheque.game.converter.CatorzeConverter;
 import coding.dojo.maps.cheque.game.converter.CincoConverter;
 import coding.dojo.maps.cheque.game.converter.DezConverter;
+import coding.dojo.maps.cheque.game.converter.DezenoveConverter;
+import coding.dojo.maps.cheque.game.converter.DezeseisConverter;
+import coding.dojo.maps.cheque.game.converter.DezesseteConverter;
+import coding.dojo.maps.cheque.game.converter.DezoitoConverter;
 import coding.dojo.maps.cheque.game.converter.DoisConverter;
+import coding.dojo.maps.cheque.game.converter.DozeConverter;
 import coding.dojo.maps.cheque.game.converter.NoveConverter;
 import coding.dojo.maps.cheque.game.converter.NumeroConverter;
 import coding.dojo.maps.cheque.game.converter.OitoConverter;
+import coding.dojo.maps.cheque.game.converter.OnzeConverter;
 import coding.dojo.maps.cheque.game.converter.QuatroConverter;
+import coding.dojo.maps.cheque.game.converter.QuinzeConverter;
 import coding.dojo.maps.cheque.game.converter.SeisConverter;
 import coding.dojo.maps.cheque.game.converter.SeteConverter;
 import coding.dojo.maps.cheque.game.converter.TresConverter;
+import coding.dojo.maps.cheque.game.converter.TrezeConverter;
 import coding.dojo.maps.cheque.game.converter.UmConverter;
-import coding.dojo.maps.cheque.game.converter.dez.CatorzeConverter;
-import coding.dojo.maps.cheque.game.converter.dez.DezenoveConverter;
-import coding.dojo.maps.cheque.game.converter.dez.DezeseisConverter;
-import coding.dojo.maps.cheque.game.converter.dez.DezesseteConverter;
-import coding.dojo.maps.cheque.game.converter.dez.DezoitoConverter;
-import coding.dojo.maps.cheque.game.converter.dez.DozeConverter;
-import coding.dojo.maps.cheque.game.converter.dez.OnzeConverter;
-import coding.dojo.maps.cheque.game.converter.dez.QuinzeConverter;
-import coding.dojo.maps.cheque.game.converter.dez.TrezeConverter;
+import coding.dojo.maps.cheque.game.converter.VinteConverter;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -51,7 +52,8 @@ public class Converter {
                 new DezeseisConverter(),
                 new DezesseteConverter(),
                 new DezoitoConverter(),
-                new DezenoveConverter()
+                new DezenoveConverter(),
+                new VinteConverter()
         );
 
         numeroConvertersIntermediario.forEach(numeroConverter -> numeroConverters.put(numeroConverter.valorAbsoluto(), numeroConverter));

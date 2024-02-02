@@ -65,6 +65,23 @@ class ChequeTest {
 
     @Test
     void validaReaisPorExtensoVinteAVinteNove() {
+        Map<BigDecimal, String> valores = Map.of(
+                new BigDecimal("20"), "vinte reais",
+                new BigDecimal("21"), "vinte e um reais",
+                new BigDecimal("22"), "vinte e dois reais",
+                new BigDecimal("23"), "vinte e tres reais",
+                new BigDecimal("24"), "vinte e quatro reais",
+                new BigDecimal("25"), "vinte e cinco reais",
+                new BigDecimal("26"), "vinte e seis reais",
+                new BigDecimal("27"), "vinte e sete reais",
+                new BigDecimal("28"), "vinte e oito reais",
+                new BigDecimal("29"), "vinte e nove reais"
+        );
 
+        for (Map.Entry<BigDecimal, String> valor : valores.entrySet()) {
+            Cheque cheque = new Cheque(valor.getKey());
+
+            assertEquals(valor.getValue(), cheque.porExtenso());
+        }
     }
 }

@@ -1,6 +1,4 @@
-package coding.dojo.maps.cheque.game.converter.dez;
-
-import coding.dojo.maps.cheque.game.converter.NumeroConverter;
+package coding.dojo.maps.cheque.game.converter;
 
 import java.math.BigDecimal;
 
